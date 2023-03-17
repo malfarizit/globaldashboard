@@ -1,0 +1,34 @@
+<td><input type='radio' name='h' value='OBSERVATION' required> Observation &nbsp; 
+							<input type='radio' name='h' value='ACCIDENT' required> Accident &nbsp;  
+							<input type='radio' name='h' value='APPROACH' required> Approach &nbsp; 
+							<input type='radio' name='h' value='RISKASSESMENT' required> Risk Assesment 	&nbsp; 
+							<input type='radio' name='h' value='SAFETYSAFARY' required> Safety Safary &nbsp; 
+							<input type='radio' name='h' value='AUDIT' required> Audit
+						</td>
+						
+						
+						
+						<script>
+        $(document).ready(function() {
+            $("input[type='checkbox']").change(function() {
+                if ($(this).val() == "OTHER") {
+                    $("#otherAnswer").show();
+					$("#b").hide();  
+                } else {
+                    $("#otherAnswer").hide(); 
+                }
+            });
+        });
+    </script>
+	 <script>
+        $(document).ready(function() {
+            $("input[type='checkbox']").change(function() {
+                if ($(this).val() == "HSE") {
+                    $("#b").show(); 
+					$("#otherAnswer").hide(); 
+                } else {
+                    $("#b").hide();  
+                }
+            });
+        });
+    </script>
