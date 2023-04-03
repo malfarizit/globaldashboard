@@ -1,7 +1,16 @@
 <center><a class="btn btn-info" href="<?php echo base_url(); ?>Main/hse" role="button">HSE Statistic Dashboard</a>
 <a class="btn btn-info" href="<?php echo base_url(); ?>Main/hse_hazardspotting" role="button">HSE Hazard Spotting</a>
 <a class="btn btn-primary" href="<?php echo base_url(); ?>Main/HSE_LeadingLagging" role="button">HSE Leading & Lagging</a></center>
-
+<br>
+<div class="dropdown center-block " style="margin-left: 44%;">
+  <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">HSE Data Control
+  <span class="caret"></span></button>
+  <ul class="dropdown-menu">
+    <li><a href="https://docs.google.com/spreadsheets/d/1qEhEMQHAZDyZP-IHSYyQZESdB9mdCHRFGE1-UHKHzfk/" target="_blank">CA</a></li>
+    <li><a href="https://docs.google.com/spreadsheets/d/1NF_972AKglvMbJDoRy-EAXogSSRm8wVW6yQ8G7h3Puc/" target="_blank">CBM</a></li>
+    <li><a href="https://docs.google.com/spreadsheets/d/19Xg4K9KN9yMNevnqyZy_AQ3jO8NteVJSghRz_hbgt-o/" target="_blank">CTB</a></li>
+  </ul>
+</div>
 <section class="desktop" style="display: none">
 <span>
 <section class="col-lg-12 connectedSortable">  

@@ -1,6 +1,14 @@
 <center><a class="btn btn-info" href="<?php echo base_url(); ?>Main/ims" role="button">IMS Statistic Dashboard</a>
 <a class="btn btn-primary" href="<?php echo base_url(); ?>Main/ims_kpi" role="button">IMS KPI</a></center>
-
+<div class="dropdown center-block " style="margin-left: 44%;">
+  <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">IMS Data Control
+  <span class="caret"></span></button>
+  <ul class="dropdown-menu">
+    <li><a href="https://docs.google.com/spreadsheets/d/1qydjDuke2bu-rHVbbGsreIlt46X_yB28WHMTXOVsmIY/" target="_blank">CA</a></li>
+    <li><a href="https://docs.google.com/spreadsheets/d/1M4_YVM6DqHfuZVj5VE6Dp8tOp7VOoxnkjI7OS3sGsZ0/" target="_blank">CBM</a></li>
+    <li><a href="https://docs.google.com/spreadsheets/d/1I4YOMkL3SdG4L3qB5TSqiQykMYfsouNOzMT8PA66d-A/" target="_blank">CTB</a></li>
+  </ul>
+  </div>
 <section class="desktop" style="display: none">
 <span>
 <section class="col-lg-12 connectedSortable">  

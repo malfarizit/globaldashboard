@@ -17,7 +17,7 @@
   <!-- <ul class="sidebar-menu"> -->
     <!-- <li class="header" style='color:#fff; text-transform:uppercase; border-bottom:2px solid #00c0ef'>MENU <span class='uppercase'><?php echo $this->session->level; ?></span></li> -->
     <ul class="sidebar-menu">
-    <li class="header" style='color:#fff; text-transform:uppercase; border-bottom:2px solid #00c0ef'>MENU QHSE</li>
+    <li class="header" style='color:#fff; text-transform:uppercase; border-bottom:2px solid #00c0ef'>QHSE</li>
 
 	  <li class="treeview">
       <a href="#"><i class="fa fa-shield"></i> <span>QHSE Dashboard</span><i class="fa fa-angle-left pull-right"></i></a>
@@ -56,7 +56,7 @@
         ?>
       </ul>
     </li>
-    <li class="header" style='color:#fff; text-transform:uppercase; border-bottom:2px solid #00c0ef'>MENU OPEX</li>
+    <li class="header" style='color:#fff; text-transform:uppercase; border-bottom:2px solid #00c0ef'>OPEX</li>
     <li class="treeview">
       <a href="#"><i class="fa fa-check-circle"></i> <span>Operation Excellence</span><i class="fa fa-angle-left pull-right"></i></a>
       <ul class="treeview-menu">
@@ -72,7 +72,7 @@
         ?>
       </ul>
     </li>
-    <li class="header" style='color:#fff; text-transform:uppercase; border-bottom:2px solid #00c0ef'>MENU SCM</li>
+    <li class="header" style='color:#fff; text-transform:uppercase; border-bottom:2px solid #00c0ef'>SCM</li>
     <li class="treeview">
       <a href="#"><i class="fa fa-shopping-cart"></i> <span>SCM</span><i class="fa fa-angle-left pull-right"></i></a>
       <ul class="treeview-menu">
@@ -87,7 +87,7 @@
       </ul>
     </li>
 
-    <li class="header" style='color:#fff; text-transform:uppercase; border-bottom:2px solid #00c0ef'>MENU ENGINEERING</li>
+    <li class="header" style='color:#fff; text-transform:uppercase; border-bottom:2px solid #00c0ef'>ENGINEERING</li>
     <li class="treeview">
       <a href="#"><i class="fa fa-cogs"></i> <span>Engineering</span><i class="fa fa-angle-left pull-right"></i></a>
       <ul class="treeview-menu">
@@ -101,7 +101,7 @@
       </ul>
     </li>
 
-    <li class="header" style='color:#fff; text-transform:uppercase; border-bottom:2px solid #00c0ef'>MENU PROJECTS</li>
+    <li class="header" style='color:#fff; text-transform:uppercase; border-bottom:2px solid #00c0ef'>PROJECTS</li>
     <li class="treeview">
       <a href="#"><i class="fa fa-cog"></i> <span>Projects</span><i class="fa fa-angle-left pull-right"></i></a>
       <ul class="treeview-menu">
@@ -115,7 +115,7 @@
       </ul>
     </li>
 
-    <li class="header" style='color:#fff; text-transform:uppercase; border-bottom:2px solid #00c0ef'>MENU ITES</li>
+    <li class="header" style='color:#fff; text-transform:uppercase; border-bottom:2px solid #00c0ef'>ITES</li>
     <li class="treeview">
       <a href="#"><i class="fa fa-code"></i> <span>IT & Digital</span><i class="fa fa-angle-left pull-right"></i></a>
       <ul class="treeview-menu">

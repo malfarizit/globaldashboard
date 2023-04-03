@@ -1,6 +1,15 @@
 <center><a class="btn btn-info" href="<?php echo base_url(); ?>Main/sqd" role="button">SQD Statistic Dashboard</a>
 <a class="btn btn-primary" href="<?php echo base_url(); ?>Main/sqd_kpi" role="button">SQD KPI</a></center>
-
+<br>
+<div class="dropdown center-block " style="margin-left: 44%;">
+  <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">SQD KPI Data Control
+  <span class="caret"></span></button>
+  <ul class="dropdown-menu">
+    <li><a href="https://docs.google.com/spreadsheets/d/111W4LRZrOvDf5vaCudqzhWwUgtgZI9xtrktWTezHty0/" target="_blank">CA</a></li>
+    <li><a href="https://docs.google.com/spreadsheets/d/1Dqob175POQ-ZZPWAVxZUHH4pZPyW9ryUUwvfWTidvII/" target="_blank">Global</a></li>
+    <li><a href="https://docs.google.com/spreadsheets/d/1i0l9C7nue8ljtRFMSPKceQVGk8Dxq53Hs2xfKo9LOaA/" target="_blank">CTB</a></li>
+  </ul>
+</div>
 <section class="desktop" style="display: none">
 <span>
 <section class="col-lg-12 connectedSortable">  

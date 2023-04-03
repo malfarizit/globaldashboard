@@ -1,3 +1,13 @@
+<br>
+<div class="dropdown center-block " style="margin-left: 44%;">
+  <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">PROJECTS KPI DATA CONTROL
+  <span class="caret"></span></button>
+  <ul class="dropdown-menu">
+    <li><a href="https://docs.google.com/spreadsheets/d/1xT1-FPq2gW-EYH7_ejeZ48p_jQoBAjfu-LB5LSTFGCU/" target="_blank">CA</a></li>
+    <li><a href="https://docs.google.com/spreadsheets/d/1M8zLyoKMmL-_rbDMNLbSCqB7BeXVF71FV72_P75Aio8/" target="_blank">CBM</a></li>
+    <li><a href="https://docs.google.com/spreadsheets/d/15yZcEc41IFckDicoX1wiguBWIFECPPth1jTF1bedLUw/" target="_blank">CTB</a></li>
+  </ul>
+</div>
 <section class="col-lg-12 connectedSortable">  
 <div class='box' style='min-height:250px;'>
   <div class='box-header'>

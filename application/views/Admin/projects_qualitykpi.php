@@ -1,6 +1,15 @@
 <center><a class="btn btn-info" href="<?php echo base_url(); ?>Main/projects_qual" role="button">PQ Statistic Dashboard</a>
 <a class="btn btn-primary" href="<?php echo base_url(); ?>Main/projects_qual_kpi" role="button">PQ KPI</a></center>
-
+<br>
+<div class="dropdown center-block " style="margin-left: 44%;">
+  <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">PQ KPI Data Control
+  <span class="caret"></span></button>
+  <ul class="dropdown-menu">
+    <li><a href="https://docs.google.com/spreadsheets/d/1uXCd55mSpoIeIdZbp8vwVi8DY7RPkbIXSR1d6oAUkG4/" target="_blank">CA</a></li>
+    <li><a href="https://docs.google.com/spreadsheets/d/1mGINrKMIzu0hbvBI6ODerqnE4RblNcV08wJ7piKTvcE/" target="_blank">CBM</a></li>
+    <li><a href="https://docs.google.com/spreadsheets/d/10RuOyB0yXltNty_mbrxinkgb6GaTJkL968EAITQLmCU/" target="_blank">CTB</a></li>
+  </ul>
+</div>
 <section class="col-lg-12 connectedSortable">  
 <div class='box' style='min-height:250px;'>
   <div class='box-header'>
