@@ -1,5 +1,5 @@
-<center><a class="btn btn-primary" href="<?php echo base_url(); ?>Main/ims" role="button">IMS Statistic Dashboard</a>
-<a class="btn btn-info" href="<?php echo base_url(); ?>Main/ims_kpi" role="button">IMS KPI</a></center>
+<center><a class="btn btn-info" href="<?php echo base_url(); ?>Main/ims" role="button">IMS Statistic Dashboard</a>
+<a class="btn btn-primary" href="<?php echo base_url(); ?>Main/ims_kpi" role="button">IMS KPI</a></center>
 
 <section class="desktop" style="display: none">
 <span>
@@ -12,7 +12,7 @@
 		<div id=""><iframe title="KPIS" width="100%" height="500" src="https://app.powerbi.com/view?r=eyJrIjoiZDg5ZGJhNDMtYTIyZC00OTU5LWI4N2UtMDg4ZTVhZjQ3MjBjIiwidCI6ImVmNzI2YmJkLWZhOTYtNDNmOS1hZmMxLTZjMDc5ZDk2YmQ5MSIsImMiOjEwfQ%3D%3D&pageName=ReportSection41596732455145000c15" frameborder="0" allowFullScreen="true"></iframe></div>
 	</div> -->
   <div id="reportContainer" class="dds__d-none" style="height:804px; overflow-y:hidden">
-    <iframe id="reportFrame" onload="powerBiLoaded()" frameborder="0" seamless="seamless" class="viewer pbi-frame" style=" width: 100%; height: 840px;" src="https://app.powerbi.com/view?r=eyJrIjoiYzUwOGNiMmYtMjlkMi00ODQ2LTk3ZGUtOTYyNDYwYzM3MjY3IiwidCI6ImVmNzI2YmJkLWZhOTYtNDNmOS1hZmMxLTZjMDc5ZDk2YmQ5MSIsImMiOjEwfQ%3D%3D">
+    <iframe id="reportFrame" onload="powerBiLoaded()" frameborder="0" seamless="seamless" class="viewer pbi-frame" style=" width: 100%; height: 840px;" src="https://app.powerbi.com/view?r=eyJrIjoiYTJjODk1NzYtZjJmMi00NjcyLWExN2ItYTE5ZTNmZTM1OGIzIiwidCI6ImVmNzI2YmJkLWZhOTYtNDNmOS1hZmMxLTZjMDc5ZDk2YmQ5MSIsImMiOjEwfQ%3D%3D&pageName=ReportSection89d096ef3f51d8b3f0b4">
     </iframe>
 </div>
   </div> 
@@ -31,7 +31,7 @@
 		<div id=""><span><iframe title="Report Section" width="500" height="500" src="https://app.powerbi.com/view?r=eyJrIjoiYzcxMDEzZmMtZGFlYy00MDVjLWFlZDYtMGYzZjJjYmI4MjRmIiwidCI6ImVmNzI2YmJkLWZhOTYtNDNmOS1hZmMxLTZjMDc5ZDk2YmQ5MSIsImMiOjEwfQ%3D%3D" frameborder="0" allowFullScreen="true"></iframe></div></span>
 	</div> -->
   <div id="reportContainer" class="dds__d-none" style="height:804px; overflow-y:hidden">
-    <iframe id="reportFrame" onload="powerBiLoaded()" frameborder="0" seamless="seamless" class="viewer pbi-frame" style=" width: 100%; height: 840px;" src="https://app.powerbi.com/view?r=eyJrIjoiNjc2ZmJkODAtYWU2Yi00MTI5LTk0OGUtNTQzYTJhODc5YWJiIiwidCI6ImVmNzI2YmJkLWZhOTYtNDNmOS1hZmMxLTZjMDc5ZDk2YmQ5MSIsImMiOjEwfQ%3D%3D">
+    <iframe id="reportFrame" onload="powerBiLoaded()" frameborder="0" seamless="seamless" class="viewer pbi-frame" style=" width: 100%; height: 840px;" src="https://app.powerbi.com/view?r=eyJrIjoiYTJjODk1NzYtZjJmMi00NjcyLWExN2ItYTE5ZTNmZTM1OGIzIiwidCI6ImVmNzI2YmJkLWZhOTYtNDNmOS1hZmMxLTZjMDc5ZDk2YmQ5MSIsImMiOjEwfQ%3D%3D&pageName=ReportSection89d096ef3f51d8b3f0b4">
     </iframe>
 </div>
   </div> 

@@ -99,7 +99,7 @@ if($this->session->level='admin')
 								<th>Defect Length</th>
 								<th>Item Type</th>
 								<th>Size</th>
-								<th nowrap>WOL Start Date</th>
+								<!-- <th nowrap>WOL Start Date</th>
 								<th nowrap>WOL Finish Date</th>
 								<th>WOL Machine</th>
 								<th>WOL Welder ID</th>
@@ -120,7 +120,7 @@ if($this->session->level='admin')
 								<th nowrap>FMFinish Date</th>
 								<th>FMMachine</th>
 								<th nowrap>FMRepair Date</th>
-								<th>FMRepair Machine</th>
+								<th>FMRepair Machine</th> -->
 								<th>Issue QC</th>
 								<th>Length Repair</th>
 								<th>Length Pipe</th>

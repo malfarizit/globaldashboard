@@ -2,7 +2,7 @@
   <!-- Sidebar user panel -->
   <div class="user-panel"> 
 	<div class="pull-left image">
-    <?php $usr = $this->Main_model->view_where('user', array('username'=> $this->session->username))->row_array();
+    <?php $usr = $this->Main_model->view_where('g_user', array('username'=> $this->session->username))->row_array();
 	$foto='avatar2.png';
            ?>
 		   <img src="<?php echo base_url(); ?>/asset/images/<?php echo $foto; ?>" class="img-circle" alt="User Image"> 
@@ -47,7 +47,9 @@
     //   echo "<li><a href='".base_url()."#'><i class='fa fa-circle-o'></i>IMS - AUDIT</a></li>";
     //   echo "<li><a href='".base_url()."#'><i class='fa fa-circle-o'></i>SQD - NCR SUP</a></li>";
 	  // echo "<li><a href='".base_url()."#'><i class='fa fa-circle-o'></i>PROJECTS QUALITY</a></li>";
+    echo "<li><a href='".base_url()."Main/V_Import2'><i class='fa fa-circle-o'></i>PRODUCTIONS</a></li>";
 	  echo "<li><a href='".base_url()."Main/V_Import'><i class='fa fa-circle-o'></i>OPERATIONS QUALITY</a></li>";
+    echo "<li><a href='".base_url()."Main/import3'><i class='fa fa-circle-o'></i>OVERALL DATA</a></li>";
       #echo "<li><a href='".base_url()."User/projects_qual'><i class='fa fa-circle-o'></i>Projects Quality</a></li>";
 			#echo "<li><a href='".base_url()."User/operations_qual'><i class='fa fa-circle-o'></i>Operations Quality</a></li>";
       #echo "<li><a href='".base_url()."User/C_ItemCard'><i class='fa fa-circle-o'></i>Items</a></li>";  

@@ -21,7 +21,7 @@ class Main extends CI_Controller {
         parent::__construct();
         
         // Load member model
-        $this->load->model('Import_Model');
+        $this->load->model(array('Import_Model','Import_Model2'));
         
         // Load form validation library
         $this->load->library('form_validation');
@@ -34,7 +34,7 @@ class Main extends CI_Controller {
 		if (isset($_POST['submit'])){
 			$username = $this->input->post('u');
 			$password = md5($this->input->post('p'));
-			$cek = $this->Main_model->cek_login($username,$password,'user');
+			$cek = $this->Main_model->cek_login($username,$password,'g_user');
 		    $row = $cek->row_array();
 		    $total = $cek->num_rows();
 			if ($total > 0){
@@ -48,7 +48,7 @@ class Main extends CI_Controller {
 													'name'=>$row['Name'], 
 													'id_session'=>$row['id_session']));
 				$data = array('username'=>$this->session->username,
-								'login_date'=>date('YmdHis'),
+								// 'login_date'=>date('YmdHis'),
 								'ip_address'=>$this->input->ip_address());
 				$this->Main_model->insert('login',$data);
 				if ($this->session->level=='admin'){
@@ -134,6 +134,12 @@ class Main extends CI_Controller {
 		//$this->template->load('Admin/template2','Admin\hse');
     }
 
+	public function V_Import2(){
+        // Load the list page view
+        $this->template->load('Admin/template3','Admin/Import_Data2');
+    }
+
+	//import data backup//
 	// public function import(){
     //     $data = array();
     //     $memData = array();
@@ -208,6 +214,8 @@ class Main extends CI_Controller {
     //     }
     //     redirect('Main/V_Import');
     // }
+	//import data backup//
+
 	public function import(){
         $data = array();
         $memData = array();
@@ -249,28 +257,28 @@ class Main extends CI_Controller {
 								'Defect_Length' => $row['Defect_Length'],
 								'Item_Type' => $row['Item_Type'],
 								'Size' => $row['Size'],
-								'WOL_Start_Date' => $row['WOL_Start_Date'],
-								'WOL_Finish_Date' => $row['WOL_Finish_Date'],
-								'WOL_Machine' => $row['WOL_Machine'],
-								'WOL_Welder_ID' => $row['WOL_Welder_ID'],
-								'Rework_ADD_Start_Date' => $row['Rework_ADD_Start_Date'],
-								'Rework_ADD_Finish_Date' => $row['Rework_ADD_Finish_Date'],
-								'Rework_ADD_Machine' => $row['Rework_ADD_Machine'],
-								'Rework_ADD_WelderID' => $row['Rework_ADD_WelderID'],
-								'R1Start_Date' => $row['R1Start_Date'],
-								'R1Finish_Date' => $row['R1Finish_Date'],
-								'R1Machine' => $row['R1Machine'],
-								'R2Start_Date' => $row['R2Start_Date'],
-								'R2Finish_Date' => $row['R2Finish_Date'],
-								'R2Machine' => $row['R2Machine'],
-								'R3Start_Date' => $row['R3Start_Date'],
-								'R3Finish_Date' => $row['R3Finish_Date'],
-								'R3Machine' => $row['R3Machine'],
-								'FMStart_Date' => $row['FMStart_Date'],
-								'FMFinish_Date' => $row['FMFinish_Date'],
-								'FMMachine' => $row['FMMachine'],
-								'FMRepair_Date' => $row['FMRepair_Date'],
-								'FMRepair_Machine' => $row['FMRepair_Machine'],
+								// 'WOL_Start_Date' => $row['WOL_Start_Date'],
+								// 'WOL_Finish_Date' => $row['WOL_Finish_Date'],
+								// 'WOL_Machine' => $row['WOL_Machine'],
+								// 'WOL_Welder_ID' => $row['WOL_Welder_ID'],
+								// 'Rework_ADD_Start_Date' => $row['Rework_ADD_Start_Date'],
+								// 'Rework_ADD_Finish_Date' => $row['Rework_ADD_Finish_Date'],
+								// 'Rework_ADD_Machine' => $row['Rework_ADD_Machine'],
+								// 'Rework_ADD_WelderID' => $row['Rework_ADD_WelderID'],
+								// 'R1Start_Date' => $row['R1Start_Date'],
+								// 'R1Finish_Date' => $row['R1Finish_Date'],
+								// 'R1Machine' => $row['R1Machine'],
+								// 'R2Start_Date' => $row['R2Start_Date'],
+								// 'R2Finish_Date' => $row['R2Finish_Date'],
+								// 'R2Machine' => $row['R2Machine'],
+								// 'R3Start_Date' => $row['R3Start_Date'],
+								// 'R3Finish_Date' => $row['R3Finish_Date'],
+								// 'R3Machine' => $row['R3Machine'],
+								// 'FMStart_Date' => $row['FMStart_Date'],
+								// 'FMFinish_Date' => $row['FMFinish_Date'],
+								// 'FMMachine' => $row['FMMachine'],
+								// 'FMRepair_Date' => $row['FMRepair_Date'],
+								// 'FMRepair_Machine' => $row['FMRepair_Machine'],
 								'Issue_QC' => $row['Issue_QC'],
 								'Length_Repair' => $row['Length_Repair'],
 								'Length_Pipe' => $row['Length_Pipe'],
@@ -343,6 +351,116 @@ class Main extends CI_Controller {
         }
     }
 
+	public function import2(){
+        $data = array();
+        $memData = array();
+        
+        // If import request is submitted
+        if($this->input->post('importSubmit')){
+            // Form field validation rules
+            $this->form_validation->set_rules('file', 'CSV file', 'callback_file_check');
+            
+            // Validate submitted form data
+            if($this->form_validation->run() == true){
+                $insertCount = $updateCount = $rowCount = $notAddCount = 0;
+                
+                // If file uploaded
+                if(is_uploaded_file($_FILES['file']['tmp_name'])){
+                    // Load CSV reader library
+                    $this->load->library('CSVReader');
+                    
+                    // Parse data from CSV file
+                    $csvData = $this->csvreader->parse_csv($_FILES['file']['tmp_name']);
+                    
+                    // Insert/update CSV data into database
+                    if(!empty($csvData)){
+                        foreach($csvData as $row){ $rowCount++;
+                            
+                            // Prepare data for DB insertion
+                            $memData = array(
+								'id' => $row['id'],
+                                'Unit_Id' => $row['Unit_Id'],
+                                'Project_No' => $row['Project_No'],
+                                'Item_Type' => $row['Item_Type'],
+                                'Size' => $row['Size'],
+								'Cladtek_Item_No' => $row['Cladtek_Item_No'],
+								'Actual_Length' => $row['Actual_Length'],
+								'Item' => $row['Item'],
+								'Qty' => $row['Qty'],
+								'WOL_Start_Date' => $row['WOL_Start_Date'],
+								'WOL_Finish_Date' => $row['WOL_Finish_Date'],
+								'WOL_Machine' => $row['WOL_Machine'],
+								'WOL_Welder_ID' => $row['WOL_Welder_ID'],
+								'Rework_ADD_Start_Date' => $row['Rework_ADD_Start_Date'],
+								'Rework_ADD_Finish_Date' => $row['Rework_ADD_Finish_Date'],
+								'Rework_ADD_Machine' => $row['Rework_ADD_Machine'],
+								'Rework_ADD_WelderID' => $row['Rework_ADD_WelderID'],
+								'R1Start_Date' => $row['R1Start_Date'],
+								'R1Finish_Date' => $row['R1Finish_Date'],
+								'R1Machine' => $row['R1Machine'],
+								'R2Start_Date' => $row['R2Start_Date'],
+								'R2Finish_Date' => $row['R2Finish_Date'],
+								'R2Machine' => $row['R2Machine'],
+								'R3Start_Date' => $row['R3Start_Date'],
+								'R3Finish_Date' => $row['R3Finish_Date'],
+								'R3Machine' => $row['R3Machine'],
+								'FMStart_Date' => $row['FMStart_Date'],
+								'FMFinish_Date' => $row['FMFinish_Date'],
+								'FMMachine' => $row['FMMachine'],
+								'FMRepair_Date' => $row['FMRepair_Date'],
+								'FMRepair_Machine' => $row['FMRepair_Machine'],
+								'Unit' => $row['Unit'],
+								
+                            );
+                            
+                            // Check whether email already exists in the database
+                            $con = array(
+                                'where' => array(
+                                    'id' => $row['id']
+                                ),
+                                'returnType' => 'count'
+                            );
+                            $prevCount = $this->Import_Model2->getRows($con);
+                            
+                            if($prevCount > 0){
+                                // Update member data
+                                $condition = array('id' => $row['id']);
+                                $update = $this->Import_Model2->update($memData, $condition);
+                                
+                                if($update){
+                                    $updateCount++;
+                                }
+                            }else{
+                                // Insert member data
+                                $insert = $this->Import_Model2->insert($memData);
+                                
+                                if($insert){
+                                    $insertCount++;
+                                }
+                            }
+                        }
+                        
+                        // Status message with imported data count
+                        $notAddCount = ($rowCount - ($insertCount + $updateCount));
+                        $successMsg = 'Data imported successfully. Total Rows ('.$rowCount.') | Inserted ('.$insertCount.') | Updated ('.$updateCount.') | Not Inserted ('.$notAddCount.')';
+                        $this->session->set_userdata('success_msg', $successMsg);
+                    }
+                }else{
+                    $this->session->set_userdata('error_msg', 'Error on file upload, please try again.');
+                }
+            }else{
+                $this->session->set_userdata('error_msg', 'Invalid file, please select only CSV file.');
+            }
+        }
+        redirect('Main/V_Import2');
+    }
+
+	function import3(){ 
+		cek_session_admin();
+		$this->load->library("session");
+		$this->template->load('Admin/template2','Admin/V_QHSE');   
+	}
+
 	function operations_qual(){ 
 		cek_session_admin();
 		$this->load->library("session");
@@ -373,10 +491,22 @@ class Main extends CI_Controller {
 		$this->template->load('Admin/template2','Admin/ims');   
 	}
 
+	function ims_kpi(){ 
+		cek_session_admin();
+		$this->load->library("session");
+		$this->template->load('Admin/template2','Admin/ims_kpi');   
+	}
+
 	function sqd(){ 
 		cek_session_admin();
 		$this->load->library("session");
 		$this->template->load('Admin/template2','Admin/sqd');   
+	}
+
+	function sqd_kpi(){ 
+		cek_session_admin();
+		$this->load->library("session");
+		$this->template->load('Admin/template2','Admin/sqd_kpi');   
 	}
 
 	function projects_qual(){ 
@@ -495,7 +625,7 @@ class Main extends CI_Controller {
 	
 	function V_User(){ 
 		cek_session_admin();	
-		$data['record'] = $this->Main_model->view_ordering('user','username','DESC'); 
+		$data['record'] = $this->Main_model->view_ordering('g_user','username','DESC'); 
 		$this->template->load('Admin/template','Admin/V_User',$data);
 	}
 	
@@ -512,12 +642,12 @@ class Main extends CI_Controller {
                             'level'=>$this->db->escape_str($this->input->post('h')),
                             'hak_akses'=>$this->db->escape_str($this->input->post('i')),
 							'id_session'=>md5($this->input->post('a')).'-'.date('YmdHis'));	 
-            $this->Main_model->insert('user',$data);
+            $this->Main_model->insert('g_user',$data);
             redirect('Main/V_User');
         }else{
 			// $Com  = $this->Main_model->view_ordering('company','CompanyID','DESC');
 			$dep = $this->Main_model->view_ordering('department','DeptID','ASC');  
-			$rec = $this->Main_model->view_ordering('user','username','DESC');
+			$rec = $this->Main_model->view_ordering('g_user','username','DESC');
 			$data = array('record'=> $rec, 'Dept'=>$dep);   
             $this->template->load('Admin/template','Admin/C_User',$data);
         }
@@ -534,10 +664,10 @@ class Main extends CI_Controller {
 						  'email'=>$this->db->escape_str($this->input->post('d')), 
 						  'No_Hp'=>($this->input->post('e')));
 			$where = array('username' => $this->input->post('a'));
-            $this->Main_model->update('user', $data, $where);            
+            $this->Main_model->update('g_user', $data, $where);            
             redirect('Main/V_User');
         }else{ 
-			$proses = $this->Main_model->edit('user', array('username' => $id))->row_array();
+			$proses = $this->Main_model->edit('g_user', array('username' => $id))->row_array();
             $data = array('rows' => $proses);
             $this->template->load('Admin/template','Admin/U_User',$data);
         }
@@ -546,7 +676,7 @@ class Main extends CI_Controller {
 	function D_User(){
 		cek_session_admin();		
 		$id = array('username' => $this->uri->segment(3));
-        $this->Main_model->delete('user',$id);
+        $this->Main_model->delete('g_user',$id);
 		redirect('Main/V_User');
 	}
 	
@@ -792,7 +922,7 @@ class Main extends CI_Controller {
 				//$track['TrackingNum'] = $this->Main_model->generate_TrackNum();  
 				//$rec['record'] = $this->Main_model->view_ordering('hse-leading','id','DESC');
 				//$data['record'] = $this->Main_model->view_ordering('hse-leading','id','DESC');
-				$quality  = $this->Main_model->view_ordering('rework-rate','id','ASC');
+				$quality  = $this->Main_model->view_ordering('rework_rate','id','ASC');
 				//$indicator  = $this->Main_model->view_ordering('leading-indicator','Description','DESC');
 				//$occ  = $this->Main_model->view_ordering('category','OCCategory','DESC'); 
 				//$Com  = $this->Main_model->view_ordering('company','CompanyID','DESC'); 
@@ -1058,11 +1188,11 @@ class Main extends CI_Controller {
 			if (isset($_POST['submit'])){
 				$data = array(  'password'=>md5($this->input->post('np')));
 				$where = array('username' =>  $this->input->post('a')) ;
-				$this->Main_model->update('user', $data, $where);            
+				$this->Main_model->update('g_user', $data, $where);            
 				redirect('Main/Success_relogin');
 			}else{ 				
 				$user = $this->uri->segment(3);
-				$Dtl= $this->Main_model->view_detail('user', array('username' => $user))->row_array();  
+				$Dtl= $this->Main_model->view_detail('g_user', array('username' => $user))->row_array();  
 				$data = array('rows'=>$Dtl);  
 				$this->template->load('Admin/template','Admin/V_Profile',$data);
 			}

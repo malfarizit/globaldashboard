@@ -1,3 +1,6 @@
+<center><a class="btn btn-primary" href="<?php echo base_url(); ?>Main/sqd" role="button">SQD Statistic Dashboard</a>
+<a class="btn btn-info" href="<?php echo base_url(); ?>Main/sqd_kpi" role="button">SQD KPI</a></center>
+
 <section class="desktop" style="display: none">
 <span>
 <section class="col-lg-12 connectedSortable">  

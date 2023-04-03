@@ -1,11 +1,13 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
  
-class ajax_model extends CI_Model {
+class ajax_model2 extends CI_Model {
  
-    var $table = 'rework_rate';
-    var $column_order = array('id','Inspection_Process','Date','Material_Type','Project_No','Cladtek_Item_No','Result','CategoryInspection','Issue','Freq_Inspection','Defect_Zone','Defect_Length','Item_Type','Size','WOL_Start_Date','WOL_Finish_Date','WOL_Machine','WOL_Welder_ID','Rework_ADD_Start_Date','Rework_ADD_Finish_Date','Rework_ADD_Machine','Rework_ADD_WelderID','R1Start_Date','R1Finish_Date','R1Machine','R2Start_Date','R2Finish_Date','R2Machine','R3Start_Date','R3Finish_Date','R3Machine','FMStart_Date','FMFinish_Date','FMMachine','FMRepair_Date','FMRepair_Machine','Issue_QC','Length_Repair','Length_Pipe','Size_OD_inc','Size_OD_mm','Area_Surface_Tested','Unit'); //set column field database for datatable orderable
-    var $column_search = array('id','Inspection_Process','Date','Material_Type','Project_No','Cladtek_Item_No','Result','CategoryInspection','Issue','Freq_Inspection','Defect_Zone','Defect_Length','Item_Type','Size','WOL_Start_Date','WOL_Finish_Date','WOL_Machine','WOL_Welder_ID','Rework_ADD_Start_Date','Rework_ADD_Finish_Date','Rework_ADD_Machine','Rework_ADD_WelderID','R1Start_Date','R1Finish_Date','R1Machine','R2Start_Date','R2Finish_Date','R2Machine','R3Start_Date','R3Finish_Date','R3Machine','FMStart_Date','FMFinish_Date','FMMachine','FMRepair_Date','FMRepair_Machine','Issue_QC','Length_Repair','Length_Pipe','Size_OD_inc','Size_OD_mm','Area_Surface_Tested','Unit'); //set column field database for datatable searchable 
+    var $table = 'production';
+    // var $column_order = array('id','Inspection_Process','Date','Material_Type','Project_No','Cladtek_Item_No','Result','CategoryInspection','Issue','Freq_Inspection','Defect_Zone','Defect_Length','Item_Type','Size','WOL_Start_Date','WOL_Finish_Date','WOL_Machine','WOL_Welder_ID','Rework_ADD_Start_Date','Rework_ADD_Finish_Date','Rework_ADD_Machine','Rework_ADD_WelderID','R1Start_Date','R1Finish_Date','R1Machine','R2Start_Date','R2Finish_Date','R2Machine','R3Start_Date','R3Finish_Date','R3Machine','FMStart_Date','FMFinish_Date','FMMachine','FMRepair_Date','FMRepair_Machine','Issue_QC','Length_Repair','Length_Pipe','Size_OD_inc','Size_OD_mm','Area_Surface_Tested','Unit'); //set column field database for datatable orderable
+    // var $column_search = array('id','Inspection_Process','Date','Material_Type','Project_No','Cladtek_Item_No','Result','CategoryInspection','Issue','Freq_Inspection','Defect_Zone','Defect_Length','Item_Type','Size','WOL_Start_Date','WOL_Finish_Date','WOL_Machine','WOL_Welder_ID','Rework_ADD_Start_Date','Rework_ADD_Finish_Date','Rework_ADD_Machine','Rework_ADD_WelderID','R1Start_Date','R1Finish_Date','R1Machine','R2Start_Date','R2Finish_Date','R2Machine','R3Start_Date','R3Finish_Date','R3Machine','FMStart_Date','FMFinish_Date','FMMachine','FMRepair_Date','FMRepair_Machine','Issue_QC','Length_Repair','Length_Pipe','Size_OD_inc','Size_OD_mm','Area_Surface_Tested','Unit'); //set column field database for datatable searchable 
+    var $column_order = array('id','Unit_Id','Project_No'); //set column field database for datatable orderable
+    var $column_search = array('id','Unit_Id','Project_No'); //set column field database for datatable searchable 
     //var $column_search = array('id'); //set column field database for datatable searchable 
     //var $order = array('id' => 'asc'); // default order 
  
@@ -14,19 +16,20 @@ class ajax_model extends CI_Model {
         $this->db->from($this->table);
         if (isset($_POST['search']['value'])){
             $this->db->like('id', $_POST['search']['value']);
-            $this->db->or_like('Inspection_Process', $_POST['search']['value']);
-            $this->db->or_like('Date', $_POST['search']['value']);
-            $this->db->or_like('Material_Type', $_POST['search']['value']);
+            $this->db->or_like('Unit_Id', $_POST['search']['value']);
             $this->db->or_like('Project_No', $_POST['search']['value']);
-            $this->db->or_like('Cladtek_Item_No', $_POST['search']['value']);
-            $this->db->or_like('Result', $_POST['search']['value']);
-            $this->db->or_like('CategoryInspection', $_POST['search']['value']);
-            $this->db->or_like('Issue', $_POST['search']['value']);
-            $this->db->or_like('Freq_Inspection', $_POST['search']['value']);
-            $this->db->or_like('Defect_Zone', $_POST['search']['value']);
-            $this->db->or_like('Defect_Length', $_POST['search']['value']);
-            $this->db->or_like('Item_Type', $_POST['search']['value']);
-            $this->db->or_like('Size', $_POST['search']['value']);
+            // $this->db->or_like('Date', $_POST['search']['value']);
+            // $this->db->or_like('Material_Type', $_POST['search']['value']);
+            // $this->db->or_like('Project_No', $_POST['search']['value']);
+            // $this->db->or_like('Cladtek_Item_No', $_POST['search']['value']);
+            // $this->db->or_like('Result', $_POST['search']['value']);
+            // $this->db->or_like('CategoryInspection', $_POST['search']['value']);
+            // $this->db->or_like('Issue', $_POST['search']['value']);
+            // $this->db->or_like('Freq_Inspection', $_POST['search']['value']);
+            // $this->db->or_like('Defect_Zone', $_POST['search']['value']);
+            // $this->db->or_like('Defect_Length', $_POST['search']['value']);
+            // $this->db->or_like('Item_Type', $_POST['search']['value']);
+            // $this->db->or_like('Size', $_POST['search']['value']);
             // $this->db->or_like('WOL_Start_Date', $_POST['search']['value']);
             // $this->db->or_like('WOL_Finish_Date', $_POST['search']['value']);
             // $this->db->or_like('WOL_Machine', $_POST['search']['value']);
@@ -49,13 +52,13 @@ class ajax_model extends CI_Model {
             // $this->db->or_like('FMMachine', $_POST['search']['value']);
             // $this->db->or_like('FMRepair_Date', $_POST['search']['value']);
             // $this->db->or_like('FMRepair_Machine', $_POST['search']['value']);
-            $this->db->or_like('Issue_QC', $_POST['search']['value']);
-            $this->db->or_like('Length_Repair', $_POST['search']['value']);
-            $this->db->or_like('Length_Pipe', $_POST['search']['value']);
-            $this->db->or_like('Size_OD_inc', $_POST['search']['value']);
-            $this->db->or_like('Size_OD_mm', $_POST['search']['value']);
-            $this->db->or_like('Area_Surface_Tested', $_POST['search']['value']);
-            $this->db->or_like('Unit', $_POST['search']['value']);
+            // $this->db->or_like('Issue_QC', $_POST['search']['value']);
+            // $this->db->or_like('Length_Repair', $_POST['search']['value']);
+            // $this->db->or_like('Length_Pipe', $_POST['search']['value']);
+            // $this->db->or_like('Size_OD_inc', $_POST['search']['value']);
+            // $this->db->or_like('Size_OD_mm', $_POST['search']['value']);
+            // $this->db->or_like('Area_Surface_Tested', $_POST['search']['value']);
+            // $this->db->or_like('Unit', $_POST['search']['value']);
         }
 
         if(isset($_POST['order']))

@@ -91,37 +91,6 @@
     <!-- AdminLTE App -->
     <script src="<?php echo base_url(); ?>asset/dist/js/app.min.js"></script> 
 	<script src="<?php echo base_url(); ?>asset/jQuery/jquery.multi-select.js"></script>
-    <script>
-    $('#rangepicker').daterangepicker();
-    $('.datepicker').datepicker();
-      $(function () { 
-        $("#example1").DataTable({ 
-		// "paging": false,
-        //"lengthMenu": [ 20 ]
-		"ordering": false,
-		"processing" : true,
-		"serverSide" : true,
-		"order" : [],
-		"ajax" : {
-			"url" : "<?= base_url('ajax/getData/')?>",
-			type: 'POST',
-		},
-		// columns: [
-        //     { data: 'id' },
-        //     // { data: 'last_name' },
-        //     // { data: 'position' },
-        //     // { data: 'office' },
-        //     // { data: 'start_date' },
-        //     // { data: 'salary' },
-        // ],
-		"columnDefs" : [{
-			"target" : [-1],
-			"orderable" : false
-		}]
-        });
-      });
-    </script>
-
 <script>
     $('#rangepicker').daterangepicker();
     $('.datepicker').datepicker();
@@ -135,37 +104,6 @@
 		"order" : [],
 		"ajax" : {
 			"url" : "<?= base_url('ajax/getData2/')?>",
-			type: 'POST',
-		},
-		// columns: [
-        //     { data: 'id' },
-        //     // { data: 'last_name' },
-        //     // { data: 'position' },
-        //     // { data: 'office' },
-        //     // { data: 'start_date' },
-        //     // { data: 'salary' },
-        // ],
-		"columnDefs" : [{
-			"target" : [-1],
-			"orderable" : false
-		}]
-        });
-      });
-    </script>
-
-<script>
-    $('#rangepicker').daterangepicker();
-    $('.datepicker').datepicker();
-      $(function () { 
-        $("#example3").DataTable({ 
-		// "paging": false,
-        //"lengthMenu": [ 20 ]
-		"ordering": false,
-		"processing" : true,
-		"serverSide" : true,
-		"order" : [],
-		"ajax" : {
-			"url" : "<?= base_url('ajax/getData3/')?>",
 			type: 'POST',
 		},
 		// columns: [
